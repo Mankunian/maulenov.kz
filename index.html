@@ -35,7 +35,9 @@
 </head>
 
 <body ng-controller="navCtrl" id="page-top">
-
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v8.0"
+		nonce="PYdgCdzx"></script>
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 		<div class="container">
@@ -261,6 +263,31 @@
 								<a target="_blank"
 									href="https://vk.com/away.php?to=https%3A%2F%2Finstagram.com%2Fduman_maulenov%3Futm_source%3Dig_profile_share%26igshid%3D1szcs1mbichnl&cc_key="><img
 										src="img/instagram.png" alt="instagram" style="width: 40px"></a>
+								<br>
+								<div id="share_button" class="fb-share-button" style="margin: 10px 0;"
+									data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large"><a
+										target="_blank"
+										href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+										class="fb-xfbml-parse-ignore">Поделиться</a></div>
+
+								<script type="text/javascript">
+									$(document).ready(function () {
+										$('#share_button').click(function (e) {
+											e.preventDefault();
+											FB.ui(
+												{
+													method: 'feed',
+													name: 'This is the content of the "name" field.',
+													link: 'URL which you would like to share ',
+													picture: ‘URL of the image which is going to appear as thumbnail image in share dialogbox’,
+													caption: 'Caption like which appear as title of the dialog box',
+													description: 'Small description of the post',
+													message: ''
+												}
+											);
+										});
+									});
+								</script>
 							</div>
 						</div>
 					</div>
